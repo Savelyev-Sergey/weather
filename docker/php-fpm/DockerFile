@@ -1,0 +1,35 @@
+FROM php:8.3-fpm-alpine
+
+ARG GROUP_ID=1000
+
+RUN apk add --update --no-cache \
+      git \
+      libzip-dev \
+      icu-dev \
+      zlib-dev \
+      oniguruma-dev \
+      oniguruma \
+      autoconf \
+    && mkdir /app \
+    && chown www-data:www-data /app \
+    && addgroup $GROUP_ID && adduser www-data $GROUP_ID
+
+RUN docker-php-ext-install \
+    zip \
+    intl \
+    bcmath \
+    pdo \
+    pdo_mysql \
+    mysqli \
+    mbstring
+
+RUN mkdir -p /usr/src/php/ext/redis; \
+	curl -fsSL https://pecl.php.net/get/redis --ipv4 | tar xvz -C "/usr/src/php/ext/redis" --strip 1; \
+	docker-php-ext-install redis;
+
+CMD ["php-fpm"]
+
+WORKDIR "/app"
+USER www-data
+
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
