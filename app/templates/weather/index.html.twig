@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WeatherController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if weather %}
+        <div id="ida3e7eb07fd8f9" class="wlv">
+            <div class="wlv__name"> {{ weather.city}} </div>
+            <div class="wlv__current">
+                <div class="wlv__currentTemp"> {{ weather.temperature}}°C </div>
+                <div class="wlv__currentIcon">
+                    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 281.01 153.08"><defs><style>.dhc-1{fill:#a1ddf6;}.dhc-2{fill:#84d4ec;}</style></defs><path class="dhc-1" d="M244.2,133.94a46.35,46.35,0,0,0-11.64,1.48,36.92,36.92,0,0,0-42.07-14A61.55,61.55,0,0,0,68.91,135c0,0.7,0,1.4.05,2.09a45.77,45.77,0,1,0-13.7,89.44H244.2A46.3,46.3,0,1,0,244.2,133.94Z" transform="translate(-9.49 -73.46)"></path>
+                        <path class="dhc-2" d="M104.06,122.14a114.06,114.06,0,0,1,9.8-46.4,61.57,61.57,0,0,0-45,59.27c0,0.7,0,1.4.05,2.09a45.77,45.77,0,1,0-13.7,89.44H171.55A114.48,114.48,0,0,1,104.06,122.14Z" transform="translate(-9.49 -73.46)"></path></svg> </div>  </div>
+
+            <div class="wlv__conditions"> {{ weather.conditions}} </div>
+            <div class="wlv__param">
+                <div class="wlv__paramItem"> Влажность: {{ weather.humidity}}% </div>
+                <div class="wlv__paramItem"> Ветер: Северный, {{ weather.windSpeed}} м/с </div>
+                <div class="wlv__paramItem"> Обновлено: {{ weather.lastUpdated|date('d.m.Y')}} </div>
+            </div>
+        </div>
+        <style>#ida3e7eb07fd8f9{line-height:normal}#ida3e7eb07fd8f9 div,#ida3e7eb07fd8f9 span,#ida3e7eb07fd8f9 svg{vertical-align:baseline;padding:0;margin:0;position:static;border:none}#ida3e7eb07fd8f9 div{display:block}#ida3e7eb07fd8f9 span{display:inline}.cssDef{vertical-align:baseline;padding:0;margin:0}#ida3e7eb07fd8f9 .wlSource{vertical-align:baseline;padding:0;margin:0;position:absolute;padding-top:1px;padding-right:2px;display:inline-block;text-align:right;top:7px;right:3px;width:auto!important;line-height:10px}#ida3e7eb07fd8f9 .wlSource svg{vertical-align:baseline;padding:0;margin:0;height:10px;width:10px;opacity:.35}#ida3e7eb07fd8f9 .wlSource .wlInfo{vertical-align:baseline;padding:0;margin:0;display:none;font-size:10px;padding:7px;opacity:.75;color:black;text-align:left;line-height:15px;position:relative;top:-15px;right:13px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}#ida3e7eb07fd8f9 .wlSource:hover .wlInfo{display:block;background-color:white}#ida3e7eb07fd8f9 .wlSource:hover .wlInfo a{color:black}#ida3e7eb07fd8f9.wlv{vertical-align:baseline;padding:0;margin:0;position:relative;width:100%;overflow:hidden;display:inline-block;text-align:center}#ida3e7eb07fd8f9.wlv .wlv__name{vertical-align:baseline;padding:0;margin:0;padding:5px}#ida3e7eb07fd8f9.wlv .wlv__current{vertical-align:baseline;padding:0;margin:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;padding:5px}#ida3e7eb07fd8f9.wlv .wlv__currentIcon{vertical-align:baseline;padding:0;margin:0;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1}#ida3e7eb07fd8f9.wlv .wlv__currentIcon svg{vertical-align:baseline;padding:0;margin:0;height:45px;width:45px;display:block;margin:5px auto}#ida3e7eb07fd8f9.wlv .wlv__currentTemp{vertical-align:baseline;padding:0;margin:0;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;font-size:2.1em}#ida3e7eb07fd8f9.wlv .wlv__conditions{vertical-align:baseline;padding:0;margin:0;padding:0 5px 5px 5px;font-size:1.1em}#ida3e7eb07fd8f9.wlv .wlv__param{padding:5px 5px 10px 5px;font-size:.75em}#ida3e7eb07fd8f9.wlv .wlv__paramItem{margin-bottom:5px}#ida3e7eb07fd8f9.wlv .wlv__paramItem:last-child{margin-bottom:0}#ida3e7eb07fd8f9.wlv .wlv__forecast{vertical-align:baseline;padding:0;margin:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:column;flex-direction:column}#ida3e7eb07fd8f9.wlv .wlv__forecastItem{vertical-align:baseline;padding:0;margin:0;display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-column-gap:5px;-moz-column-gap:5px;column-gap:5px;-webkit-box-align:center;-webkit-align-items:center;-moz-box-align:center;-ms-flex-align:center;align-items:center;padding:5px}#ida3e7eb07fd8f9.wlv .wlv__forecastDate{vertical-align:baseline;padding:0;margin:0;-webkit-flex-basis:30%;-ms-flex-preferred-size:30%;flex-basis:30%;-webkit-box-flex:2;-webkit-flex-grow:2;-moz-box-flex:2;-ms-flex-positive:2;flex-grow:2;font-size:.85em;text-align:left}#ida3e7eb07fd8f9.wlv .wlv__forecastIcon{vertical-align:baseline;padding:0;margin:0;-webkit-flex-basis:5%;-ms-flex-preferred-size:5%;flex-basis:5%;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1}#ida3e7eb07fd8f9.wlv .wlv__forecastIcon svg{vertical-align:baseline;padding:0;margin:0;height:35px;width:35px;display:block;margin:0 auto}#ida3e7eb07fd8f9.wlv .wlv__forecastTemp{vertical-align:baseline;padding:0;margin:0;-webkit-flex-basis:5%;-ms-flex-preferred-size:5%;flex-basis:5%;-webkit-box-flex:1;-webkit-flex-grow:1;-moz-box-flex:1;-ms-flex-positive:1;flex-grow:1;font-size:1.1em} #ida3e7eb07fd8f9{color:#FFFFFF;font-family:Arial,Helvetica,sans-serif;background-color:#9E9E9E;font-size:22px}#ida3e7eb07fd8f9.wlv .wlv__name,#ida3e7eb07fd8f9.wlv .wlv__conditions,#ida3e7eb07fd8f9.wlv .wlv__current,#ida3e7eb07fd8f9.wlv .wlv__param,#ida3e7eb07fd8f9.wlv .wlv__forecastItem:nth-child(even){background-color:#616161;color:#FFFFFF} #ida3e7eb07fd8f9.wlv{max-width:250px} #ida3e7eb07fd8f9.wlv{border-radius:8px}</style></div>
+    {% else %}
+        <h4>Нет данных</h4>
+    {% endif %}
+</div>
+{% endblock %}

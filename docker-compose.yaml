@@ -47,8 +47,3 @@ services:
       - "8899:80"
     links:
       - php-fpm
-
-  redis:
-    image: redis:7.0.7-alpine
-    ports:
-      - '63793:6379'
