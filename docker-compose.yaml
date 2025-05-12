@@ -1,10 +1,6 @@
 version: "3.1"
 
 services:
-  composer:
-    image: composer:latest
-    working_dir: /app
-
   db:
     image: mariadb:10.5.17
     restart: always
@@ -33,8 +29,6 @@ services:
       - ./docker/php-fpm/php-ini-overrides.ini:/usr/local/etc/php/conf.d/php.ini
     links:
       - db
-      - composer
-      - redis
 
   nginx:
     image: nginx:alpine
